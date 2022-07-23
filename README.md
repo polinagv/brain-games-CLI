@@ -3,3 +3,5 @@
 
 ### CodeClimate status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/0ede5f217055d1a1faa4/maintainability)](https://codeclimate.com/github/polinagv/frontend-project-lvl1/maintainability)
+
+[![asciicast](https://asciinema.org/a/ZqUajxIl5pv9tvH6iRZPx5G7e.svg)](https://asciinema.org/a/ZqUajxIl5pv9tvH6iRZPx5G7e)
