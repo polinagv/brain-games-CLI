@@ -1,7 +1,7 @@
 import { randomNumber, toPlay, MAX_ROUNDS } from '../index.js';
 
 const MATH_OPERATIONS = ['+', '-', '*'];
-const toComputeCorrectAnswerCalc = (one, two, oper) => {
+const toCalc = (one, two, oper) => {
   let correctAnswer = null;
   switch (oper) {
     case '+':
@@ -29,7 +29,7 @@ const toPlayBrainCalc = (name) => {
     const operator = MATH_OPERATIONS[randomNumber(0, 2)];
 
     const question = `${firstNumber} ${operator} ${secondNumber}`;
-    const correctAnswer = toComputeCorrectAnswerCalc(firstNumber, secondNumber, operator);
+    const correctAnswer = toCalc(firstNumber, secondNumber, operator);
     const result = toPlay(question, correctAnswer, name);
 
     if (result === 'win') {
