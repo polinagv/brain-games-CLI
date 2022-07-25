@@ -6,3 +6,6 @@
 
 ### Первый проект Игры Разума (игра brain-even):
 https://asciinema.org/a/ZqUajxIl5pv9tvH6iRZPx5G7e
+
+### Второй проект Игры Разума (игра brain-calc):
+https://asciinema.org/a/FylvvwFJoHqdv0KOETfDF28wV
