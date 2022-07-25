@@ -1,9 +1,4 @@
-import readlineSync from 'readline-sync';
-
-const randomNumber = (min, max) => {
-  const rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-};
+import { randomNumber, toPlay, MAX_ROUNDS } from '../index.js';
 
 const isEven = (num) => num % 2 === 0;
 
@@ -12,23 +7,19 @@ const toPlayBrainEven = (name) => {
 
   let countOfCorrectAnswers = 0;
 
-  while (countOfCorrectAnswers !== 3) {
-    const questionNumber = randomNumber(1, 100);
-    console.log(`Question: ${questionNumber}`);
-    const answer = readlineSync.question('Your answer: ');
+  while (countOfCorrectAnswers !== MAX_ROUNDS) {
+    const question = randomNumber(1, 100);
+    const correctAnswer = isEven(question) ? 'yes' : 'no';
+    const result = toPlay(question, correctAnswer, name);
 
-    const correctAnswer = isEven(questionNumber) ? 'yes' : 'no';
-    if (answer === correctAnswer) {
-      console.log('Correct!');
+    if (result === 'win') {
       countOfCorrectAnswers += 1;
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log(`Let's try again, ${name}`);
+    } else if (result === 'lose') {
       return;
     }
   }
 
-  if (countOfCorrectAnswers === 3) {
+  if (countOfCorrectAnswers === MAX_ROUNDS) {
     console.log(`Congratulations, ${name}!`);
   }
 };
