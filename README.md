@@ -15,3 +15,6 @@ https://asciinema.org/a/SnDQDyD669Jk3sAJIbwtutn9n
 
 ### Проект: Игры Разума (игра brain-progression):
 https://asciinema.org/a/Csopbf187ozGRlim0Jx9WA6UM
+
+### Проект: Игры Разума (игра brain-prime):
+https://asciinema.org/a/EKx0bRT3YqMBwpgD2gRmu7QlV
