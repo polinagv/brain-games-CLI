@@ -12,3 +12,6 @@ https://asciinema.org/a/FylvvwFJoHqdv0KOETfDF28wV
 
 ### Проект: Игры Разума (игра brain-gcd):
 https://asciinema.org/a/SnDQDyD669Jk3sAJIbwtutn9n
+
+### Проект: Игры Разума (игра brain-progression):
+https://asciinema.org/a/Csopbf187ozGRlim0Jx9WA6UM
