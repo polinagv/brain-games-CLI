@@ -17,6 +17,6 @@ export const toPlay = (gameQuestion, gameCorrectAnswer, userName) => {
   }
 
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${gameCorrectAnswer}'.`);
-  console.log(`Let's try again, ${userName}`);
+  console.log(`Let's try again, ${userName}!`);
   return 'lose';
 };
