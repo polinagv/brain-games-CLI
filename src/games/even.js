@@ -1,5 +1,5 @@
-import { toPlay } from '../index.js';
-import { randomNumber } from '../helpers.js';
+import toPlay from '../index.js';
+import randomNumber from '../helpers.js';
 
 const isEven = (num) => num % 2 === 0;
 const task = 'Answer "yes" if the number is even, otherwise answer "no".';

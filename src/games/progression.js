@@ -1,5 +1,5 @@
-import { toPlay } from '../index.js';
-import { randomNumber } from '../helpers.js';
+import toPlay from '../index.js';
+import randomNumber from '../helpers.js';
 
 const toGenerateProgression = (changeFactor, progressionLength = 10) => {
   const firstNumber = randomNumber(1, 100);

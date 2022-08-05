@@ -1,5 +1,5 @@
-import { toPlay } from '../index.js';
-import { randomNumber } from '../helpers.js';
+import toPlay from '../index.js';
+import randomNumber from '../helpers.js';
 
 const MATH_OPERATIONS = ['+', '-', '*'];
 const toCalc = (one, two, oper) => {

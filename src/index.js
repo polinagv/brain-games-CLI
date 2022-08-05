@@ -3,7 +3,7 @@ import userGreeting from './cli.js';
 
 const MAX_ROUNDS = 3;
 
-export const toPlay = (gameData, gameTask) => {
+const toPlay = (gameData, gameTask) => {
   console.log('Welcome to the Brain Games!');
 
   const userName = userGreeting();
@@ -31,3 +31,5 @@ export const toPlay = (gameData, gameTask) => {
     console.log(`Congratulations, ${userName}!`);
   }
 };
+
+export default toPlay;

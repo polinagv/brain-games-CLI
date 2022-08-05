@@ -1,5 +1,5 @@
-import { toPlay } from '../index.js';
-import { randomNumber } from '../helpers.js';
+import toPlay from '../index.js';
+import randomNumber from '../helpers.js';
 
 const isPrime = (num) => {
   for (let i = 2; i <= Math.sqrt(num); i += 1) {

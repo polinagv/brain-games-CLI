@@ -1,5 +1,5 @@
-import { toPlay } from '../index.js';
-import { randomNumber } from '../helpers.js';
+import toPlay from '../index.js';
+import randomNumber from '../helpers.js';
 
 const toFindGcd = (first, second) => {
   let a = Math.max(first, second);
