@@ -1,4 +1,5 @@
-import { randomNumber, toPlay, MAX_ROUNDS } from '../index.js';
+import { toPlay } from '../index.js';
+import { randomNumber } from '../helpers.js';
 
 const toFindGcd = (first, second) => {
   let a = Math.max(first, second);
@@ -13,29 +14,16 @@ const toFindGcd = (first, second) => {
   return result.toString();
 };
 
-const toPlayBrainGcd = (name) => {
-  console.log('Find the greatest common divisor of given numbers.');
+const task = 'Find the greatest common divisor of given numbers.';
 
-  let countOfCorrectAnswers = 0;
+const toPlayBrainGcd = () => {
+  const firstNumber = randomNumber(1, 100);
+  const secondNumber = randomNumber(1, 100);
 
-  while (countOfCorrectAnswers !== MAX_ROUNDS) {
-    const firstNumber = randomNumber(1, 100);
-    const secondNumber = randomNumber(1, 100);
+  const question = `${firstNumber} ${secondNumber}`;
+  const correctAnswer = toFindGcd(firstNumber, secondNumber);
 
-    const question = `${firstNumber} ${secondNumber}`;
-    const correctAnswer = toFindGcd(firstNumber, secondNumber);
-    const result = toPlay(question, correctAnswer, name);
-
-    if (result === 'win') {
-      countOfCorrectAnswers += 1;
-    } else if (result === 'lose') {
-      return;
-    }
-  }
-
-  if (countOfCorrectAnswers === MAX_ROUNDS) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return [question, correctAnswer];
 };
 
-export default toPlayBrainGcd;
+export default () => toPlay(toPlayBrainGcd, task);

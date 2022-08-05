@@ -1,4 +1,5 @@
-import { randomNumber, toPlay, MAX_ROUNDS } from '../index.js';
+import { toPlay } from '../index.js';
+import { randomNumber } from '../helpers.js';
 
 const isPrime = (num) => {
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
@@ -9,26 +10,13 @@ const isPrime = (num) => {
   return true;
 };
 
-const toPlayBrainPrime = (name) => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  let countOfCorrectAnswers = 0;
+const toPlayBrainPrime = () => {
+  const question = randomNumber(1, 100);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
-  while (countOfCorrectAnswers !== MAX_ROUNDS) {
-    const question = randomNumber(1, 100);
-    const correctAnswer = isPrime(question) ? 'yes' : 'no';
-    const result = toPlay(question, correctAnswer, name);
-
-    if (result === 'win') {
-      countOfCorrectAnswers += 1;
-    } else if (result === 'lose') {
-      return;
-    }
-  }
-
-  if (countOfCorrectAnswers === MAX_ROUNDS) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return [question, correctAnswer];
 };
 
-export default toPlayBrainPrime;
+export default () => toPlay(toPlayBrainPrime, task);

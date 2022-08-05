@@ -1,4 +1,5 @@
-import { randomNumber, toPlay, MAX_ROUNDS } from '../index.js';
+import { toPlay } from '../index.js';
+import { randomNumber } from '../helpers.js';
 
 const MATH_OPERATIONS = ['+', '-', '*'];
 const toCalc = (one, two, oper) => {
@@ -18,30 +19,17 @@ const toCalc = (one, two, oper) => {
   return correctAnswer.toString();
 };
 
-const toPlayBrainCalc = (name) => {
-  console.log('What is the result of the expression?');
+const task = 'What is the result of the expression?';
 
-  let countOfCorrectAnswers = 0;
+const toPlayBrainCalc = () => {
+  const firstNumber = randomNumber(1, 100);
+  const secondNumber = randomNumber(1, 100);
+  const operator = MATH_OPERATIONS[randomNumber(0, 2)];
 
-  while (countOfCorrectAnswers !== MAX_ROUNDS) {
-    const firstNumber = randomNumber(1, 100);
-    const secondNumber = randomNumber(1, 100);
-    const operator = MATH_OPERATIONS[randomNumber(0, 2)];
+  const question = `${firstNumber} ${operator} ${secondNumber}`;
+  const correctAnswer = toCalc(firstNumber, secondNumber, operator);
 
-    const question = `${firstNumber} ${operator} ${secondNumber}`;
-    const correctAnswer = toCalc(firstNumber, secondNumber, operator);
-    const result = toPlay(question, correctAnswer, name);
-
-    if (result === 'win') {
-      countOfCorrectAnswers += 1;
-    } else if (result === 'lose') {
-      return;
-    }
-  }
-
-  if (countOfCorrectAnswers === MAX_ROUNDS) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return [question, correctAnswer];
 };
 
-export default toPlayBrainCalc;
+export default () => toPlay(toPlayBrainCalc, task);

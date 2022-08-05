@@ -1,4 +1,5 @@
-import { randomNumber, toPlay, MAX_ROUNDS } from '../index.js';
+import { toPlay } from '../index.js';
+import { randomNumber } from '../helpers.js';
 
 const toGenerateProgression = (changeFactor, progressionLength = 10) => {
   const firstNumber = randomNumber(1, 100);
@@ -11,34 +12,21 @@ const toGenerateProgression = (changeFactor, progressionLength = 10) => {
   return arr;
 };
 
-const toPlayBrainProgression = (name) => {
-  console.log('What number is missing in the progression?');
+const task = 'What number is missing in the progression?';
 
-  let countOfCorrectAnswers = 0;
+const toPlayBrainProgression = () => {
+  const changeFactor = randomNumber(-10, 10);
+  const progressionLength = randomNumber(5, 15);
+  const progression = toGenerateProgression(changeFactor, progressionLength);
 
-  while (countOfCorrectAnswers !== MAX_ROUNDS) {
-    const changeFactor = randomNumber(-10, 10);
-    const progressionLength = randomNumber(5, 15);
-    const progression = toGenerateProgression(changeFactor, progressionLength);
+  const numberToReplace = progression[randomNumber(0, progressionLength - 1)];
+  const indexOfCorrectAnswer = progression.indexOf(numberToReplace);
+  progression[indexOfCorrectAnswer] = '..';
 
-    const numberToReplace = progression[randomNumber(0, progressionLength - 1)];
-    const indexOfCorrectAnswer = progression.indexOf(numberToReplace);
-    progression[indexOfCorrectAnswer] = '..';
+  const question = progression.join(' ');
+  const correctAnswer = numberToReplace.toString();
 
-    const question = progression.join(' ');
-    const correctAnswer = numberToReplace.toString();
-    const result = toPlay(question, correctAnswer, name);
-
-    if (result === 'win') {
-      countOfCorrectAnswers += 1;
-    } else if (result === 'lose') {
-      return;
-    }
-  }
-
-  if (countOfCorrectAnswers === MAX_ROUNDS) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return [question, correctAnswer];
 };
 
-export default toPlayBrainProgression;
+export default () => toPlay(toPlayBrainProgression, task);
