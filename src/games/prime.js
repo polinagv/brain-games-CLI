@@ -1,5 +1,5 @@
-import toPlay from '../index.js';
-import randomNumber from '../helpers.js';
+import play from '../index.js';
+import getRandomNumber from '../helpers.js';
 
 const isPrime = (num) => {
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
@@ -12,11 +12,11 @@ const isPrime = (num) => {
 
 const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const toPlayBrainPrime = () => {
-  const question = randomNumber(1, 100);
+const playBrainPrime = () => {
+  const question = getRandomNumber(1, 100);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 };
 
-export default () => toPlay(toPlayBrainPrime, task);
+export default () => play(playBrainPrime, task);

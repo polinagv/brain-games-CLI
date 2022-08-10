@@ -3,33 +3,27 @@ import userGreeting from './cli.js';
 
 const MAX_ROUNDS = 3;
 
-const toPlay = (gameData, gameTask) => {
+const play = (gameData, gameTask) => {
   console.log('Welcome to the Brain Games!');
 
   const userName = userGreeting();
 
   console.log(gameTask);
 
-  let countOfCorrectAnswers = 0;
+  for (let round = 0; round < MAX_ROUNDS; round += 1) {
+    const [gameQuestion, gameCorrectAnswer] = gameData();
 
-  while (countOfCorrectAnswers !== MAX_ROUNDS) {
-    const gameParams = gameData();
-    const question = gameParams[0];
-    const correctAnswer = gameParams[1];
-
-    console.log(`Question: ${question}`);
+    console.log(`Question: ${gameQuestion}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (answer === correctAnswer) {
-      console.log('Correct!');
-      countOfCorrectAnswers += 1;
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+    if (answer !== gameCorrectAnswer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${gameCorrectAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${userName}!`);
 };
 
-export default toPlay;
+export default play;

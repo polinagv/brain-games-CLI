@@ -1,5 +1,5 @@
-import toPlay from '../index.js';
-import randomNumber from '../helpers.js';
+import play from '../index.js';
+import getRandomNumber from '../helpers.js';
 
 const toFindGcd = (first, second) => {
   let a = Math.max(first, second);
@@ -16,9 +16,9 @@ const toFindGcd = (first, second) => {
 
 const task = 'Find the greatest common divisor of given numbers.';
 
-const toPlayBrainGcd = () => {
-  const firstNumber = randomNumber(1, 100);
-  const secondNumber = randomNumber(1, 100);
+const playBrainGcd = () => {
+  const firstNumber = getRandomNumber(1, 100);
+  const secondNumber = getRandomNumber(1, 100);
 
   const question = `${firstNumber} ${secondNumber}`;
   const correctAnswer = toFindGcd(firstNumber, secondNumber);
@@ -26,4 +26,4 @@ const toPlayBrainGcd = () => {
   return [question, correctAnswer];
 };
 
-export default () => toPlay(toPlayBrainGcd, task);
+export default () => play(playBrainGcd, task);

@@ -1,5 +1,5 @@
-import toPlay from '../index.js';
-import randomNumber from '../helpers.js';
+import play from '../index.js';
+import getRandomNumber from '../helpers.js';
 
 const MATH_OPERATIONS = ['+', '-', '*'];
 const toCalc = (one, two, oper) => {
@@ -15,16 +15,17 @@ const toCalc = (one, two, oper) => {
       correctAnswer = one * two;
       break;
     default:
+      correctAnswer = 'error :(';
   }
   return correctAnswer.toString();
 };
 
 const task = 'What is the result of the expression?';
 
-const toPlayBrainCalc = () => {
-  const firstNumber = randomNumber(1, 100);
-  const secondNumber = randomNumber(1, 100);
-  const operator = MATH_OPERATIONS[randomNumber(0, 2)];
+const playBrainCalc = () => {
+  const firstNumber = getRandomNumber(1, 100);
+  const secondNumber = getRandomNumber(1, 100);
+  const operator = MATH_OPERATIONS[getRandomNumber(0, MATH_OPERATIONS.length - 1)];
 
   const question = `${firstNumber} ${operator} ${secondNumber}`;
   const correctAnswer = toCalc(firstNumber, secondNumber, operator);
@@ -32,4 +33,4 @@ const toPlayBrainCalc = () => {
   return [question, correctAnswer];
 };
 
-export default () => toPlay(toPlayBrainCalc, task);
+export default () => play(playBrainCalc, task);

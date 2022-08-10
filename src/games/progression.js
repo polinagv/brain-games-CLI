@@ -1,8 +1,8 @@
-import toPlay from '../index.js';
-import randomNumber from '../helpers.js';
+import play from '../index.js';
+import getRandomNumber from '../helpers.js';
 
 const toGenerateProgression = (changeFactor, progressionLength = 10) => {
-  const firstNumber = randomNumber(1, 100);
+  const firstNumber = getRandomNumber(1, 100);
   const arr = [firstNumber];
 
   while (arr.length < progressionLength) {
@@ -14,12 +14,12 @@ const toGenerateProgression = (changeFactor, progressionLength = 10) => {
 
 const task = 'What number is missing in the progression?';
 
-const toPlayBrainProgression = () => {
-  const changeFactor = randomNumber(-10, 10);
-  const progressionLength = randomNumber(5, 15);
+const playBrainProgression = () => {
+  const changeFactor = getRandomNumber(-10, 10);
+  const progressionLength = getRandomNumber(5, 15);
   const progression = toGenerateProgression(changeFactor, progressionLength);
 
-  const numberToReplace = progression[randomNumber(0, progressionLength - 1)];
+  const numberToReplace = progression[getRandomNumber(0, progressionLength - 1)];
   const indexOfCorrectAnswer = progression.indexOf(numberToReplace);
   progression[indexOfCorrectAnswer] = '..';
 
@@ -29,4 +29,4 @@ const toPlayBrainProgression = () => {
   return [question, correctAnswer];
 };
 
-export default () => toPlay(toPlayBrainProgression, task);
+export default () => play(playBrainProgression, task);
