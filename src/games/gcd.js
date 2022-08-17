@@ -4,7 +4,7 @@ import getRandomNumber from '../helpers.js';
 const FindGcd = (first, second) => {
   let a = Math.max(first, second);
   let b = Math.min(first, second);
-  let result = 1;
+  let result = b;
 
   while (a % b !== 0) {
     result = a % b;
