@@ -1,17 +1,16 @@
 import readlineSync from 'readline-sync';
-import userGreeting from './cli.js';
 
 const MAX_ROUNDS = 3;
 
-const play = (gameData, gameTask) => {
+const play = (getGameData, gameTask) => {
   console.log('Welcome to the Brain Games!');
-
-  const userName = userGreeting();
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
 
   console.log(gameTask);
 
   for (let round = 0; round < MAX_ROUNDS; round += 1) {
-    const [gameQuestion, gameCorrectAnswer] = gameData();
+    const [gameQuestion, gameCorrectAnswer] = getGameData();
 
     console.log(`Question: ${gameQuestion}`);
     const answer = readlineSync.question('Your answer: ');

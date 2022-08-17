@@ -2,22 +2,22 @@ import play from '../index.js';
 import getRandomNumber from '../helpers.js';
 
 const MATH_OPERATIONS = ['+', '-', '*'];
-const toCalc = (one, two, oper) => {
+const calc = (first, second, operator) => {
   let correctAnswer = null;
-  switch (oper) {
+  switch (operator) {
     case '+':
-      correctAnswer = one + two;
+      correctAnswer = first + second;
       break;
     case '-':
-      correctAnswer = one - two;
+      correctAnswer = first - second;
       break;
     case '*':
-      correctAnswer = one * two;
+      correctAnswer = first * second;
       break;
     default:
       correctAnswer = 'error :(';
   }
-  return correctAnswer.toString();
+  return correctAnswer;
 };
 
 const task = 'What is the result of the expression?';
@@ -28,7 +28,7 @@ const playBrainCalc = () => {
   const operator = MATH_OPERATIONS[getRandomNumber(0, MATH_OPERATIONS.length - 1)];
 
   const question = `${firstNumber} ${operator} ${secondNumber}`;
-  const correctAnswer = toCalc(firstNumber, secondNumber, operator);
+  const correctAnswer = calc(firstNumber, secondNumber, operator).toString();
 
   return [question, correctAnswer];
 };
