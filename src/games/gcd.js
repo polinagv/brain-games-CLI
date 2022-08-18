@@ -1,7 +1,7 @@
 import play from '../index.js';
 import getRandomNumber from '../helpers.js';
 
-const FindGcd = (first, second) => {
+const findGcd = (first, second) => {
   let a = Math.max(first, second);
   let b = Math.min(first, second);
   let result = b;
@@ -21,7 +21,7 @@ const playBrainGcd = () => {
   const secondNumber = getRandomNumber(1, 100);
 
   const question = `${firstNumber} ${secondNumber}`;
-  const correctAnswer = FindGcd(firstNumber, secondNumber).toString();
+  const correctAnswer = findGcd(firstNumber, secondNumber).toString();
 
   return [question, correctAnswer];
 };

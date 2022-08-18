@@ -1,7 +1,7 @@
 import play from '../index.js';
 import getRandomNumber from '../helpers.js';
 
-const GenerateProgression = (firstNumber, changeFactor, progressionLength = 10) => {
+const generateProgression = (firstNumber, changeFactor, progressionLength = 10) => {
   const arr = [firstNumber];
 
   while (arr.length < progressionLength) {
@@ -17,7 +17,7 @@ const playBrainProgression = () => {
   const firstNumber = getRandomNumber(1, 100);
   const changeFactor = getRandomNumber(-10, 10);
   const progressionLength = getRandomNumber(5, 15);
-  const progression = GenerateProgression(firstNumber, changeFactor, progressionLength);
+  const progression = generateProgression(firstNumber, changeFactor, progressionLength);
 
   const numberToReplace = progression[getRandomNumber(0, progressionLength - 1)];
   const indexOfCorrectAnswer = progression.indexOf(numberToReplace);
